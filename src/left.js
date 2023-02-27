@@ -1,6 +1,11 @@
+import { lefttop } from "./left-top"
+
 function left() {
     const left = document.createElement("div");
-    left.style = "border:1px solid black;"
+    const down = document.createElement("div");
+    down.id = "projects";
+    left.appendChild(lefttop());
+    left.appendChild(down);
     return left;
 }
 export { left }
