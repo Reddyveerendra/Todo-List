@@ -18,7 +18,7 @@ function scriptforproject() {
         const p = document.createElement('p');
         p.classList = 'project';
         p.id = a;
-        b1.setAttribute("onclick", "edit(id+id)");
+        b1.setAttribute("onclick", "Edit(id)");
         b2.setAttribute("onclick","Delete(id)");
         p.style="margin: 0;width: 100%;height: inherit;padding: px;text-align: center;padding: 0px;"
         const d = document.getElementById('center');
@@ -26,9 +26,9 @@ function scriptforproject() {
         div.appendChild(p);
         div.appendChild(div2);
         d.appendChild(div);
+        div.id=a;
         div.style = 'padding: 2px;background-color: lightskyblue;margin: 6px;border: 5px solid red;display: flex;flex-direction: column;align-items: center;';
         center = document.getElementById(a);
-        center.addEventListener('click', (e) => { alert(e.target.id) });
         while (projects.firstChild) {
             projects.removeChild(projects.lastChild);
         }
