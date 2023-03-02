@@ -21,24 +21,8 @@ function newProject() {
     div.append(script);
     button.setAttribute("onclick", "newProject()");
 }
-export { newProject };
-
-
-`function newProject() {
-    const a = document.getElementById('inputName').value;
-    if (a !== '') {
-        const p = document.createElement('p');
-        p.classList = 'project';
-        p.id = a;
-        const div = document.getElementById('center');
-        p.textContent = document.getElementById('inputName').value;
-        div.appendChild(p);
-        p.style = 'margin: 0%;padding: 11px;background-color: lightskyblue;margin: 10px;border: 7px solid red;';
-        while (projects.firstChild) {
-            projects.removeChild(projects.lastChild);
-        }
-        center = document.querySelector(a);
-        console.log(centers);
-        center.addEventListener('click', (e) => { console.log(e.target.id) });
-    }
-}`
+const edit = `function edit(e){
+        console.log(e);}
+    function Delete(e){
+        console.log(e);}`
+export { newProject, edit };
