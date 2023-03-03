@@ -29,7 +29,7 @@ function scriptforproject() {
         div.id=a;
         div.style = 'padding: 2px;background-color: lightskyblue;margin: 6px;border: 5px solid red;display: flex;flex-direction: column;align-items: center;';
         center = document.getElementById(a+"p");
-        center.addEventListener('click', (e) => { tasks(e.target.id) });
+        center.addEventListener('click', (e) => { stater=true;obj=e.target.id ;tasksAdders(obj)});
         while (projects.firstChild) {
             projects.removeChild(projects.lastChild);
         }
