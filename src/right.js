@@ -52,7 +52,6 @@ function right() {
         div.appendChild(button);
         div.id=obj+"win";
         main.appendChild(div);
-        alert(obj)
         stater=false;
     }
     var stater=false;
@@ -67,7 +66,6 @@ function right() {
     }
     var Statement=true;
     function newtask() {
-        alert(obj+"win");
         const input=document.getElementById("inp").value;
         const select=document.getElementById("sel").value;
         console.log(input,select);
