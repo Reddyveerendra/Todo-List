@@ -14,13 +14,13 @@ function right() {
         const main=document.getElementById("taskadd");
         console.log(e);
         const div = document.createElement("div");
-        div.style="height: 100px; width: 124px; flex-direction: column; display: flex; background: lemonchiffon; border: 2px solid red;"
+        div.style="height: auto; width: auto; flex-direction: column; display: flex; background: lemonchiffon; border: 2px solid red;"
         const label1 = document.createElement("label");
         const label2 = document.createElement("label");
         label1.textContent="Enter Task Name";
         label2.textContent="Enter Task priority";
         const select = document.createElement("select");
-        select.style="height: 100px; width: 124px; flex-direction: column; display: flex; border: 2px solid red;"
+        select.style="height: auto; width: 124px; flex-direction: column; display: flex; border: 2px solid red;"
         const option1 = document.createElement("option");
         const t1 = document.createTextNode("HIGH");
         option1.appendChild(t1);
@@ -41,6 +41,11 @@ function right() {
         input.type="text";
         input.id="inp";
         select.id="sel";
+        const label3 = document.createElement("label");
+        label3.textContent="Please Enter Due Date";
+        const input2=document.createElement("input");
+        input2.type="date"
+        input2.id="due";
         const button=document.createElement("input");
         button.type="button";
         button.value="submit";
@@ -49,6 +54,8 @@ function right() {
         div.appendChild(input);
         div.appendChild(label2);
         div.appendChild(select);
+        div.appendChild(label3);
+        div.appendChild(input2);
         div.appendChild(button);
         div.id=obj+"win";
         main.appendChild(div);
@@ -68,6 +75,8 @@ function right() {
     function newtask() {
         const input=document.getElementById("inp").value;
         const select=document.getElementById("sel").value;
+        const due=document.getElementById("due").value;
+        const p3=document.createElement("p");
         console.log(input,select);
         const p1=document.createElement("p");
         const p2=document.createElement("p");
@@ -75,19 +84,29 @@ function right() {
         const div2=document.createElement("div");
         p1.textContent="Task"+" : "+input;
         p2.textContent="Task priority"+" : "+select;
+        p3.textContent="Due Date"+" : "+due
         div2.style="display:flex;";
         const button =document.createElement("input");
         button.value="uncompleted";
         button.id=input;
+        div.id=input;
         button.type="button";
         div2.appendChild(p1);
         button.setAttribute("onclick","changeStatement(id)");
         div.appendChild(div2);
         div.appendChild(p2);
+        div.appendChild(p3);
         div.appendChild(button);
-        p1.style="border:1px solid brown;"
-        p2.style="border:1px solid brown;"
-        div.style="padding: 2px; background-color: lightskyblue; margin: 6px; border: 5px solid red; display: flex; flex-direction: column; align-items: center; width:170px;"
+        div.style="margin: 6px;padding: 2px; background-color: lightskyblue; display: flex; flex-direction: column; align-items: center; width:170px;"
+        if(select=="HIGH"){
+            div.style.border="5px solid red";
+        }
+        else if(select=="LOW"){
+            div.style.border="5px solid green";
+        }
+        else{
+            div.style.border="5px solid Orange";
+        }
         const item=document.getElementById("taskslist");
         item.appendChild(div)
         const wins=document.getElementById("taskadd");
@@ -97,11 +116,13 @@ function right() {
         console.log(e)
         const button=document.getElementById(e);
         if(Statement==true){
-            button.value="completed";
+            button.style.textDecoration="line-through";
+            button.lastElementChild.value="completed";
             Statement=false;
         }
         else{
-            button.value="uncompleted";
+            button.style.textDecoration="none";
+            button.lastElementChild.value="uncompleted";
             Statement=true;
         }
     }
