@@ -1,3 +1,3 @@
 # Todo-List
 
-# https://reddyveerendra.github.io/Todo-List/dist/
+# https://reddyveerendra.github.io/Todo-List/
