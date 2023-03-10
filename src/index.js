@@ -15,7 +15,7 @@ function taskFinder(e) {
         menu();
     }
     else {
-        console.log("bye");
+        all();
     }
 
 }

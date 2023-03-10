@@ -146,7 +146,6 @@ function script() {
         }
         const s=localStorage[obj];
         const arr=s.split(",");
-        console.log(arr)
         for(let i=0;i<arr.length;i++){
             let sample=arr[i].split("|");
             let input=sample[0];
@@ -154,7 +153,6 @@ function script() {
             let due=sample[2];
             const div=projectTask(input,select,due);
             item.appendChild(div);
-            console.log(item);
         }
     }
     var stater=false;
@@ -173,6 +171,18 @@ function script() {
         const select=document.getElementById("sel").value;
         const due=document.getElementById("due").value;
         const New=input+"|"+select+"|"+due;
+        const a=localStorage;
+        const b=Object.values(a);
+        let t=[];
+        for(let i=0;i<b.length;i++){
+            const s=b[i].split(",");
+            t=t.concat(s);
+        }
+        if(t.indexOf(New)!=-1){
+            alert("task already exits");
+            return;
+        }
+        console.log(t)
         const old=localStorage[obj];
         if(old!=""){
             localStorage[obj]=old+","+New;
@@ -194,7 +204,6 @@ function script() {
             let due=sample[2];
             const div=projectTask(input,select,due);
             item.appendChild(div);
-            console.log(item);
         }
         const wins=document.getElementById("taskadd");
             wins.removeChild(wins.lastChild);
@@ -244,6 +253,26 @@ function script() {
             button.style.textDecoration="none";
             button.lastElementChild.value="uncompleted";
             Statement=true;
+        }
+    }
+    function all(){
+        let item=document.getElementById("taskslist");
+        while (item.firstChild) {
+            item.removeChild(item.lastChild);
+        }
+        const a=localStorage;
+        const b=Object.values(a);
+        for(let i=0;i<b.length;i++){
+            const s=b[i];
+            const arr=s.split(",");
+            for(let i=0;i<arr.length;i++){
+            let sample=arr[i].split("|");
+            let input=sample[0];
+            let select=sample[1];
+            let due=sample[2];
+            const div=projectTask(input,select,due);
+            item.appendChild(div);
+        }
         }
     }
     `;

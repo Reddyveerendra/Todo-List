@@ -26,7 +26,7 @@ function top() {
     p2.id = "addProject";
     add.id = "addProject";
     top.style =
-        `border-bottom: 4px solid orange;display: flex;flex-direction: column;gap: 15px;padding: 15px;align-items: center;`;
+        `border-bottom: 4px solid orange;display: flex;flex-direction: column;gap: 15px;height: fit-content;padding: 15px;align-items: center;`;
     return top;
 }
 export { top };
